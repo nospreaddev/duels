@@ -1,4 +1,4 @@
-﻿using MyGame;
+﻿using Duels;
 using Sandbox.Models;
 using System;
 using System.Collections.Generic;

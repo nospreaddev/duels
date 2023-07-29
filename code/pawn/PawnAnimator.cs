@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System;
 
-namespace MyGame;
+namespace Duels;
 
 public class PawnAnimator : EntityComponent<Pawn>, ISingletonComponent
 {

@@ -1,6 +1,6 @@
 using Sandbox;
 
-namespace MyGame;
+namespace Duels;
 
 public partial class Pistol : Weapon
 {
