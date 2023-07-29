@@ -3,7 +3,7 @@ using Editor;
 using System.Collections.Generic;
 
 [Library( "info_player_start" ), HammerEntity]
-[Title( "Player Spawnpoint" ), Category( "Player" ), Icon( "place" )]
+[Title( "Duels Spawnpoint" ), Category( "Player" ), Icon( "place" )]
 public class SpawnPoint : Entity
 {
 	/// <summary>
