@@ -18,6 +18,7 @@
                     <label class="subtitle">Client Name: @Sandbox.Game.UserName</label>
                     <label class="subtitle">Client Id: @Sandbox.Game.SteamId</label>
                     <label class="subtitle">Server Id: @Sandbox.Game.ServerSteamId</label>
+                    <label class="subtitle">Spawnpoint: @Sandbox.Game.LocalClient.GetValue("spawnpoint", (string)"err")</label>
                     <label class="subtitle">First Person: @Sandbox.Game.LocalPawn.IsFirstPersonMode</label>
                     <label class="subtitle">Velocity: @Sandbox.Game.LocalPawn.Velocity</label>
                     <label class="subtitle">Life State: @Sandbox.Game.LocalPawn.LifeState</label>

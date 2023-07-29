@@ -47,7 +47,10 @@ public partial class MyGame : Sandbox.GameManager
 
 		// chose a random one
 		// This will eventually choose one in a way that both players don't have the same one.
-		var randomSpawnPoint = spawnpoints.OrderBy( x => Guid.NewGuid() ).FirstOrDefault();
+		var guid = Guid.NewGuid();
+		var randomSpawnPoint = spawnpoints.OrderBy( x => guid ).FirstOrDefault();
+
+		client.SetValue( "spawnpoint", guid.ToString() );
 
 		// if it exists, place the pawn there
 		if ( randomSpawnPoint != null )
