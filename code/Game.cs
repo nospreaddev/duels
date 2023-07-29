@@ -43,26 +43,29 @@ public partial class MyGame : Sandbox.GameManager
 		pawn.Respawn();
 		pawn.DressFromClient( client );
 
-		// Get all of the spawnpoints
-		// This will eventually get the spawn points for the player's assigned arena.
-		var spawnpoints = Entity.All.OfType<DuelsSpawnPoint>();
-
-		// chose a random one
-		// This will eventually choose one in a way that both players don't have the same one.
-		var guid = Guid.NewGuid();
-		var randomSpawnPoint = spawnpoints.OrderBy( x => guid ).FirstOrDefault();
-
-		client.SetValue( "spawnpointguid", guid.ToString() );
-		client.SetInt( "spawnpoint", SpawnIndex );
-
-		SpawnIndex++;
-
-		// if it exists, place the pawn there
-		if ( randomSpawnPoint != null )
+		if (Game.IsServer)
 		{
-			var tx = randomSpawnPoint.Transform;
-			tx.Position = tx.Position + Vector3.Up * 50.0f; // raise it up
-			pawn.Transform = tx;
+			// Get all of the spawnpoints
+			// This will eventually get the spawn points for the player's assigned arena.
+			var spawnpoints = Entity.All.OfType<DuelsSpawnPoint>();
+
+			// chose a random one
+			// This will eventually choose one in a way that both players don't have the same one.
+			var guid = Guid.NewGuid();
+			var randomSpawnPoint = spawnpoints.OrderBy( x => guid ).FirstOrDefault();
+
+			client.SetValue( "spawnpointguid", guid.ToString() );
+			client.SetInt( "spawnpoint", SpawnIndex );
+
+			SpawnIndex++;
+
+			// if it exists, place the pawn there
+			if ( randomSpawnPoint != null )
+			{
+				var tx = randomSpawnPoint.Transform;
+				tx.Position = tx.Position + Vector3.Up * 50.0f; // raise it up
+				pawn.Transform = tx;
+			}
 		}
 	}
 }
