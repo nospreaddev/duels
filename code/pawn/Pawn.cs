@@ -70,6 +70,7 @@ public partial class Pawn : AnimatedEntity
 		EnableDrawing = true;
 		EnableHideInFirstPerson = true;
 		EnableShadowInFirstPerson = true;
+		Health = 100;
 	}
 
 	public void SetActiveWeapon( Weapon weapon )

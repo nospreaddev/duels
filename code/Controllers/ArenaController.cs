@@ -32,11 +32,14 @@ namespace Sandbox.Controllers
 					SpawnPoints.Add( spawnPoint );
 				} );
 
+				log.Info("Total spawnpoints founds: " + SpawnPoints.Count );
+
 				var guid = Guid.NewGuid();
 				var randomSpawnPoint = SpawnPoints.OrderBy( x => guid ).FirstOrDefault();
 
 				client.SetValue( "spawnpointguid", guid.ToString() );
 				client.SetInt( "spawnpoint", randomSpawnPoint.Index );
+				client.SetInt( "arena", randomSpawnPoint.Entity.ArenaNumber );
 
 				if ( randomSpawnPoint != null )
 				{
