@@ -1,6 +1,8 @@
 ﻿
 using Sandbox;
-using System;
+using Sandbox.Controllers;
+using Sandbox.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 //
@@ -28,7 +30,7 @@ public partial class MyGame : Sandbox.GameManager
 		}
 	}
 
-	private int SpawnIndex { get; set; } = 0;
+	ArenaController controller = new ArenaController();
 
 	/// <summary>
 	/// A client has joined the server. Make them a pawn to play with
@@ -37,36 +39,7 @@ public partial class MyGame : Sandbox.GameManager
 	{
 		base.ClientJoined( client );
 
-		// Create a pawn for this client to play with
-		var pawn = new Pawn();
-		client.Pawn = pawn;
-		pawn.Respawn();
-		pawn.DressFromClient( client );
-
-		if (Game.IsServer)
-		{
-			// Get all of the spawnpoints
-			// This will eventually get the spawn points for the player's assigned arena.
-			var spawnpoints = Entity.All.OfType<DuelsSpawnPoint>();
-
-			// chose a random one
-			// This will eventually choose one in a way that both players don't have the same one.
-			var guid = Guid.NewGuid();
-			var randomSpawnPoint = spawnpoints.OrderBy( x => guid ).FirstOrDefault();
-
-			client.SetValue( "spawnpointguid", guid.ToString() );
-			client.SetInt( "spawnpoint", SpawnIndex );
-
-			SpawnIndex++;
-
-			// if it exists, place the pawn there
-			if ( randomSpawnPoint != null )
-			{
-				var tx = randomSpawnPoint.Transform;
-				tx.Position = tx.Position + Vector3.Up * 50.0f; // raise it up
-				pawn.Transform = tx;
-			}
-		}
+		controller.AssignAndSpawnAll(client);
 	}
 }
 
