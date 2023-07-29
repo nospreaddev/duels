@@ -2,8 +2,9 @@
 using Editor;
 using System.Collections.Generic;
 
-[Library( "info_player_start" ), HammerEntity]
+[Library( "duels_spawnpoint" ), HammerEntity]
 [Title( "Duels Spawnpoint" ), Category( "Player" ), Icon( "place" )]
+[EditorModel( "models/editor/playerstart.vmdl" )]
 public class SpawnPoint : Entity
 {
 	/// <summary>

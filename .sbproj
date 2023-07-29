@@ -1,7 +1,7 @@
 {
   "Title": "DUELS",
   "Type": "game",
-  "Org": "local",
+  "Org": "nospread",
   "Ident": "duels",
   "Tags": null,
   "Schema": 1,
