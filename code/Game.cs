@@ -28,6 +28,8 @@ public partial class MyGame : Sandbox.GameManager
 		}
 	}
 
+	private int SpawnIndex { get; set; } = 0;
+
 	/// <summary>
 	/// A client has joined the server. Make them a pawn to play with
 	/// </summary>
@@ -50,7 +52,10 @@ public partial class MyGame : Sandbox.GameManager
 		var guid = Guid.NewGuid();
 		var randomSpawnPoint = spawnpoints.OrderBy( x => guid ).FirstOrDefault();
 
-		client.SetValue( "spawnpoint", guid.ToString() );
+		client.SetValue( "spawnpointguid", guid.ToString() );
+		client.SetInt( "spawnpoint", SpawnIndex );
+
+		SpawnIndex++;
 
 		// if it exists, place the pawn there
 		if ( randomSpawnPoint != null )
