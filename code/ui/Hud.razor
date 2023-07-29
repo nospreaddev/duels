@@ -8,13 +8,42 @@
 <root>
     <ChatBox/>
     <VoiceList/>
-
-    <div class="header">
-        <label>Shooter Game</label>
-        <label class="subtitle">A template to kick start the production of your own games.</label>
-    </div>
+    @if (Sandbox.Game.LocalPawn != null)
+    {
+        <div class="root-container">
+            @if (DuelsDebug == 1)
+            {
+                <div class="debug-container">
+                    <label>Debug Overlay</label>
+                    <label class="subtitle">Client Name: @Sandbox.Game.UserName</label>
+                    <label class="subtitle">Client Id: @Sandbox.Game.SteamId</label>
+                    <label class="subtitle">Server Id: @Sandbox.Game.ServerSteamId</label>
+                    <label class="subtitle">First Person: @Sandbox.Game.LocalPawn.IsFirstPersonMode</label>
+                    <label class="subtitle">Velocity: @Sandbox.Game.LocalPawn.Velocity</label>
+                    <label class="subtitle">Life State: @Sandbox.Game.LocalPawn.LifeState</label>
+                    <label class="subtitle">Health: @Sandbox.Game.LocalPawn.Health</label>
+                    <label class="subtitle">Ammo: @Sandbox.Game.LocalClient.GetInt("Ammo")</label>
+                </div>
+            }
+            <div class="crosshair-container">
+                <div class="crosshair"></div>
+            </div>
+            <div class="info-container">
+                <div class="info-stats">@Sandbox.Game.LocalPawn.Health</div>
+                <!--div class="info-vel @VelocityClass">@Velocity</div>
+                <div-- class="info-stats">@Sandbox.Game.LocalClient.GetInt("Ammo")</div-->
+            </div>
+        </div>
+    }
 </root>
 
 @code
 {
+    [ConVar.Client("duels_debug")]
+    public static int DuelsDebug { get; set; } = 0;
+
+    protected override int BuildHash()
+    {
+        return Sandbox.Time.Now.GetHashCode();
+    }
 }
