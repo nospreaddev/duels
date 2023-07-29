@@ -103,7 +103,7 @@
 
     async void FetchPackage()
     {
-        MapPackage = await Package.FetchAsync( Game.Menu.Lobby?.Map ?? "facepunch.square", true );
+        MapPackage = await Package.FetchAsync( Game.Menu.Lobby?.Map ?? "nospread.duels", true );
     }
 
     protected override void OnAfterTreeRender( bool firstTime )

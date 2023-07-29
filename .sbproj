@@ -31,6 +31,18 @@
     "SavedGames": true,
     "MapDependentSaves": false,
     "SaveFormatVersion": 1001,
-    "TickRate": 50
+    "TickRate": 50,
+    "LaunchConfigs": [
+      {
+        "Name": "Dev",
+        "GameIdent": "nospread.duels#local",
+        "MapName": "nospread.duelstest",
+        "MaxPlayers": 1,
+        "GameSettings": {},
+        "Addons": "",
+        "PreLaunchCommand": "",
+        "PostLaunchCommand": ""
+      }
+    ]
   }
 }

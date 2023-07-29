@@ -35,7 +35,7 @@
     public async void CreateLobbyAsync()
     {
         await Game.Menu.CreateLobbyAsync( 64, "game", true );
-        Game.Menu.Lobby.Map = "facepunch.square";
+        Game.Menu.Lobby.Map = "nospread.duels";
         this.Navigate( "/lobby/active" );
     }
 
