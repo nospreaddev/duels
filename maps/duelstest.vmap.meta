@@ -1,0 +1,28 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "duelstest",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "duelstest",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "MenuResources": null,
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "semxy.bowieskybox#24718",
+        "nospread.duels"
+      ],
+      "Metadata": {
+        "SingleAssetSource": "maps/duelstest.vmap"
+      }
+    }
+  }
+}

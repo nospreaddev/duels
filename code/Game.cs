@@ -42,9 +42,11 @@ public partial class MyGame : Sandbox.GameManager
 		pawn.DressFromClient( client );
 
 		// Get all of the spawnpoints
-		var spawnpoints = Entity.All.OfType<SpawnPoint>();
+		// This will eventually get the spawn points for the player's assigned arena.
+		var spawnpoints = Entity.All.OfType<DuelsSpawnPoint>();
 
 		// chose a random one
+		// This will eventually choose one in a way that both players don't have the same one.
 		var randomSpawnPoint = spawnpoints.OrderBy( x => Guid.NewGuid() ).FirstOrDefault();
 
 		// if it exists, place the pawn there
