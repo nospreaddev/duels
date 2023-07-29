@@ -8,18 +8,8 @@ using System.Collections.Generic;
 public class SpawnPoint : Entity
 {
 	/// <summary>
-	/// Arena Number
+	/// The arena numbner this spawnpoint is in. You can only assign 2 spawnpoints to an arena.
 	/// </summary>
 	[Property( Title = "Arena Number" )]
 	public int ArenaNumber { get; set; } = 0;
-
-	/// <summary>
-	/// The side this spawn point is on in it's arena. Each arena should have an A and B spawnpoint. Put A or B in this box depending on which side it is. This may change in the future.
-	/// </summary>
-	[Property( Title = "Arena Side" )]
-	public List<string> ArenaSide { get; set; } = new List<string>
-	{
-		"A",
-		"B",
-	};
 }
